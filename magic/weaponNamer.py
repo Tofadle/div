@@ -47,7 +47,7 @@ def damageGenerator(weaponName):
         weaponDmg = random.randint(1, 20)
     return weaponDmg
 
-weaponName = weaponNamer(positiveAdj, negativeAdj, weaponList)
-""" print(f"\t\t**GENERATED WEAPON**\n\n~-*\t~-*\t{weaponName}\t*-~\t*-~\n")
+""" weaponName = weaponNamer(positiveAdj, negativeAdj, weaponList)
+print(f"\t\t**GENERATED WEAPON**\n\n~-*\t~-*\t{weaponName}\t*-~\t*-~\n")
 print(f"value: {priceGenerator(weaponName)}")
 print(f"damage: {damageGenerator(weaponName)}") """

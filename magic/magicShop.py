@@ -62,7 +62,7 @@ def welcomeMessage():
     print("\'help\' to display this text again.")
 
 class Weapon:
-    def __init__(self,name, dmg, price):
+    def __init__(self, name, dmg, price):
         self.name = name
         self.dmg = dmg
         self.price = price
@@ -70,23 +70,27 @@ class Weapon:
     def __str__(self):
         return f"{self.name}"
 
-class Trinket(Weapon):
-
-    def createWeapon(name, kind, dmg, price):#NOTE really unsure if this should be two functions, since args are given in the def
+#NOTE: I suspect weaponNamer won't make a unique weapon every time. fix this later
+class Trinket:
+    def createWeapon():
         #Generate name on the wordlists
         name = weaponNamer.weaponName
         #generate dmg based on nameList
         dmg = weaponNamer.damageGenerator(weaponNamer.weaponName)
         #generate price based on adjective
         price = weaponNamer.priceGenerator(weaponNamer.weaponName)
-        return name, kind, dmg, price 
+        return name, dmg, price
+
+    def __init__(self, name, dmg, price):
+        pass
 
     def __str__(self):
-        return f"A magical trinket, which has the ability to create weapons"
+        return "A magical trinket, which has the ability to create weapons"
 
     def use(self):
-        weapon = self.createWeapon
-        return weapon
+        name, dmg, price = self.createWeapon()
+        return Weapon(name, dmg, price)
+
 
 class inventory:
     #inventory class for both store and player
@@ -129,14 +133,11 @@ class inventory:
     def checkBalance(self):
         return f"{self._balance}"
 
-    def checkInventory(self):#Remove 'None' from empy initialized inventories
+    def checkInventory(self):
         for item in self.inventory:
             if item == None:
                 self.inventory.remove(item)
             print(item)
-    
-    def useTrinket(item):
-        pass
 
 
 
