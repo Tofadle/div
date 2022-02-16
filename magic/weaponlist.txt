@@ -1,0 +1,15 @@
+Shortsword
+Claymore
+Longsword
+Broadsword
+Falchion
+Battle axe
+Club
+Flail
+Mace
+Halberd
+Lance
+Longbow
+Throwing Spear
+Shuriken
+Longship
