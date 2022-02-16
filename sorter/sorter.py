@@ -1,17 +1,7 @@
 #! python3
-#Sorter - sorts movies and TV shows into corresponding folders for plex media server
-import os
-from os import path
-import shutil
-import sys
+#Sorter - Sorts files from a source to two destination folders based on two respective categories, e.g. movies and tv shows or movies and pictures
+import os, shutil, sys
 
-
-    
-    
-
-
-#[python3, sorter.py, <source>, <category:path>, <category:path>][4]
-#Add functionality for a flag -f which reads arguments from a .txt file in the same directory
 def args():
     usage_message = "\nUsage:\npython3 sorter.py <source> <category>:<path> <category>:<path>\n\n-help, -h for help"
     help_message = "-file, -f <sorter.txt> to open from file\ntext format:\n" + usage_message 
@@ -38,27 +28,21 @@ def args():
         quit()
 
 
-#List the contents of the Downloads folder
+#List the contents of the source folder
 def main(source, cat1, pat1, cat2, pat2):    
     os.chdir(source)
     for item in os.listdir():
-            #moved = source + "/" +  item
-            sort = input(f"is {item} a {cat1} or {cat2}?\n")
+            sort = input(f"is {item} a {cat1} or {cat2}?\n(Any key to skip)\n> ")
+            #sort in category 1
             if sort == f"{cat1}":
                 newpat1 = pat1 + "/" + item
-                #if not os.path.isdir(pat1):
-                    #What happens if the movie isnt a dir?
                 print(f"moving {item}...")
                 shutil.move(item, newpat1)
-                #else:
-                    #continue
-            elif sort == f"{cat2}":#!This doesn't move the file at all
-                #if not os.path.isdir(pat2):
+                #sort in category 2
+            elif sort == f"{cat2}":
                 newpat2 = pat2 + "/" + item
                 shutil.move(item, newpat2)
                 print(f"moving {item}")
-                #else:
-                    #continue
             else:
                 print(f"leaving {item}")
 
