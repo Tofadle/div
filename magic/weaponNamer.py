@@ -50,4 +50,5 @@ def damageGenerator(weaponName):
 """ weaponName = weaponNamer(positiveAdj, negativeAdj, weaponList)
 print(f"\t\t**GENERATED WEAPON**\n\n~-*\t~-*\t{weaponName}\t*-~\t*-~\n")
 print(f"value: {priceGenerator(weaponName)}")
-print(f"damage: {damageGenerator(weaponName)}") """
+print(f"damage: {damageGenerator(weaponName)}")
+ """

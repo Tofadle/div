@@ -74,22 +74,15 @@ class Weapon:
 class Trinket:
     def createWeapon():
         #Generate name on the wordlists
-        name = weaponNamer.weaponName
+        name = weaponNamer.weaponNamer
         #generate dmg based on nameList
-        dmg = weaponNamer.damageGenerator(weaponNamer.weaponName)
+        dmg = weaponNamer.damageGenerator(name)
         #generate price based on adjective
-        price = weaponNamer.priceGenerator(weaponNamer.weaponName)
-        return name, dmg, price
-
-    def __init__(self, name, dmg, price):
-        pass
+        price = weaponNamer.priceGenerator(name)
+        return Weapon(name, dmg, price)
 
     def __str__(self):
         return "A magical trinket, which has the ability to create weapons"
-
-    def use(self):
-        name, dmg, price = self.createWeapon()
-        return Weapon(name, dmg, price)
 
 
 class inventory:
