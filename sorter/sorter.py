@@ -18,6 +18,8 @@ def args():
                 args = f.readlines()
                 source, split1, split2 = args[0].split(" ")#maybe find a more elegant way to get rid of the space
                 cat1, pat1, cat2, pat2 = split1.split(":")[0], split1.split(":")[1], split2.split(":")[0], split2.split(":")[1]
+                if "\n" in pat2:
+                    pat2 = pat2[:-1]
             return source, cat1, pat1, cat2, pat2
         except FileNotFoundError:
             print(help_message)
@@ -29,10 +31,11 @@ def args():
 
 
 #List the contents of the source folder
+#TODO: Figure out a way to display progress when moving files
 def main(source, cat1, pat1, cat2, pat2):    
     os.chdir(source)
     for item in os.listdir():
-            sort = input(f"is {item} a {cat1} or {cat2}?\n--->{cat1}/{cat1[0]} or {cat2}/{cat2[0]} to sort\n(Any key to skip)\n> ")
+            sort = input(f"Sorting from {source}.\nis {item} a {cat1} or {cat2}?\n---> type: {cat1}/{cat1[0]} or {cat2}/{cat2[0]} to sort\n(Any key to skip)\n> ")
             #sort in category 1
             if sort == f"{cat1}" or sort == f"{cat1[0]}":
                 newpat1 = pat1 + "/" + item
