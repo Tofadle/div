@@ -5,6 +5,7 @@ import random
 def listMaker(file):
     wordListNewline = []
     wordList = []
+
     rawWords = open(file, 'r', newline='')#Why doesn't newline='' do anything?
     for word in rawWords:
         wordListNewline.append(word)

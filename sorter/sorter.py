@@ -37,6 +37,7 @@ def main(source, cat1, pat1, cat2, pat2):
     for item in os.listdir():
             sort = input(f"Sorting from {source}.\nis {item} a {cat1} or {cat2}?\n---> type: {cat1}/{cat1[0]} or {cat2}/{cat2[0]} to sort\n(Any key to skip)\n> ")
             #sort in category 1
+            #TODO: Make sure shutil.Error: Destination path already exists doesn't happen
             if sort == f"{cat1}" or sort == f"{cat1[0]}":
                 newpat1 = pat1 + "/" + item
                 print(f"moving {item}...")
@@ -44,8 +45,8 @@ def main(source, cat1, pat1, cat2, pat2):
                 #sort in category 2
             elif sort == f"{cat2}" or sort == f"{cat2[0]}":
                 newpat2 = pat2 + "/" + item
-                shutil.move(item, newpat2)
                 print(f"moving {item}")
+                shutil.move(item, newpat2)
             else:
                 print(f"leaving {item}")
 
