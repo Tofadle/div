@@ -2,13 +2,19 @@
 #Sorter - Sorts files from a source to two destination folders based on two respective categories, e.g. movies and tv shows or movies and pictures
 import os, shutil, sys
 
+#Change working directory to script directory
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
+
 def args():
     help_message = "-file, -f sorter.txt to open from file\ntext format:\n <source> <category>:<path> <category>:<path>"
     arglist = []
 
     if sys.argv[1] == "-f" or "-file":
         try:
-            with open("sorter.txt", 'r') as f:
+            with open("./sorter.txt", 'r') as f:
                 #TODO: use regex to test args in .txt file
                 args = f.readlines()
                 source, split1, split2 = args[0].split(" ")#maybe find a more elegant way to get rid of the space
