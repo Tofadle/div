@@ -3,15 +3,10 @@
 import os, shutil, sys
 
 def args():
-    usage_message = "\nUsage:\npython3 sorter.py <source> <category>:<path> <category>:<path>\n\n-help, -h for help"
-    help_message = "-file, -f <sorter.txt> to open from file\ntext format:\n" + usage_message 
+    help_message = "-file, -f sorter.txt to open from file\ntext format:\n <source> <category>:<path> <category>:<path>"
     arglist = []
 
-    if len(sys.argv) == 4:
-        source, cat1, pat1, cat2, pat2 = sys.argv[2], sys.argv[3].split(":")[0], sys.argv[3].split(":")[1],
-        sys.argv[4].split(":")[0], sys.argv[4].split(":")[1]
-        return source, cat1, pat1, cat2, pat2
-    elif sys.argv[1] == "-f" or "-file":
+    if sys.argv[1] == "-f" or "-file":
         try:
             with open("sorter.txt", 'r') as f:
                 #TODO: use regex to test args in .txt file
@@ -26,7 +21,7 @@ def args():
     elif sys.argv[1] == "-h" or "-help":
         print(help_message)
     else:
-        print(usage_message)
+        print(help_message)
         quit()
 
 
