@@ -19,7 +19,8 @@ def args():
             cat1, pat1, cat2, pat2 = split1.split(":")[0], split1.split(":")[1], split2.split(":")[0], split2.split(":")[1]
             if "\n" in pat2:
                 pat2 = pat2[:-1]
-        return [source, cat1, pat1, cat2, pat2]
+            sorters = dict([(cat1, pat1), (cat2, pat2)])
+        return source, sorters
     except FileNotFoundError:
         print(help_message)
     if sys.argv[1] == "-h" or "-help":
@@ -28,9 +29,6 @@ def args():
         print(help_message)
         quit()
 
-def main(*args):
-    print(type(args))
+def main(:
+    pass
 
-print(type(args()))
-print(len(args()))
-main(args)
