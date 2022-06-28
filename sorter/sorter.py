@@ -66,17 +66,19 @@ def main(*args):
         #TODO: Check other directories
         else:
             if not movie(dirs, file):
-                #Check for nested dirs (e.g. one dir with two seasons) and move the root
                 if len(dirs) >= 2:
+                    #move nested dir
                     season_dir = root
                     logging.debug(f"{debug_format(season_dir)} is being moved to {debug_format(sorters['series'])}")
                     shutil.move(season_dir, sorters["series"])
                 else:
+                    #move single season dir
                     logging.debug(f"{debug_format(root)} is being moved to {debug_format(sorters['series'])}")
                     shutil.move(root, sorters["series"])
             elif movie(dirs, file):
+                #move movie
                 logging.debug(f"{debug_format(root)} is being moved to {debug_format(sorters['movies'])}")
-                shutil.move(root, sorters['series'])
+                shutil.move(root, sorters['movies'])
 
 if __name__ == "__main__":
     main(args("./sorter.txt"))
